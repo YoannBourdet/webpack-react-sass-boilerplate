@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import HelloMessage from './HelloMessage';
-
-ReactDOM.render(<HelloMessage name="John" />, document.getElementById('main'));
+/* styles */
+import '../scss/styles';
+/* App */
+import './app';
