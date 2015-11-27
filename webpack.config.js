@@ -13,6 +13,7 @@ module.exports = {
     './js/entry.js',
   ],
   resolve: {
+    alias: {},
     extensions: ['', '.js', '.jsx', '.json', '.scss'],
   },
   output: {

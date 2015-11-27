@@ -1,5 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import HelloMessage from './HelloMessage';
+import React, { Component } from 'react';
+import Header from './header/header.js';
+import datasHeader from './datas/header.js';
 
-ReactDOM.render(<HelloMessage name="John Doe" />, document.getElementById('main'));
+export default class App extends Component {
+  render() {
+    return (
+      <div className="wrapper">
+        <Header items={datasHeader}/>
+      </div>
+    );
+  }
+}

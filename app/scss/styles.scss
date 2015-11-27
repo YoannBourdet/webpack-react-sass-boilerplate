@@ -1,11 +1,35 @@
 $white: #fff;
 $black: #000;
-html, body {
- height: 100%;
- background-color: purple;
- color: $black;
+html,
+body {
+  height: 100%;
+  background-color: purple;
+  color: $black;
 }
+
 #main {
- border: 6px solid red;
- background-color: yellow;
+  background-color: $white;
+}
+
+.wrapper {
+  border: 1px solid red;
+}
+
+header {
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      padding: 20px;
+      &.active {
+        a {
+          color: red;
+        }
+      }
+    }
+    a {
+      color: $black;
+      text-decoration: none;
+    }
+  }
 }
