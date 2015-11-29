@@ -7,17 +7,19 @@ const globalConfig = require('./global.config');
 module.exports = {
   context: path.join(__dirname, 'app'),
   devtool: 'eval',
-  entry: [
-    'webpack-dev-server/client?http://localhost:' + globalConfig.port,
-    'webpack/hot/dev-server',
-    './js/entry.js',
-  ],
+  entry: {
+    app: [
+      'webpack-dev-server/client?http://localhost:' + globalConfig.server.port,
+      'webpack/hot/dev-server',
+      './js/entry.js',
+    ],
+  },
   resolve: {
     alias: {},
-    extensions: ['', '.js', '.jsx', '.json', '.scss'],
+    extensions: ['', '.js', '.jsx', '.json', '.scss', '.html'],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.join(__dirname, 'public'),
     publicPath: '/',
   },
@@ -38,12 +40,20 @@ module.exports = {
     }],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Webback | Webpack + Backbone + React',
-      template: __dirname + '/app/templates/layouts/index.html',
+      template: globalConfig.staticPage.pathToTemplate,
       inject: 'body',
+      title: globalConfig.staticPage.title,
+      metas: {
+        keywords: globalConfig.staticPage.metas.keywords,
+        description: globalConfig.staticPage.metas.description,
+      },
+      container: {
+        id: globalConfig.staticPage.container.id,
+        role: globalConfig.staticPage.container.role,
+      },
     }),
     new ExtractTextPlugin('styles.css'),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 };

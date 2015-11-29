@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% for (var meta in htmlWebpackPlugin.options.metas) { %>
+    <meta name="<%= meta %>" content="<%= htmlWebpackPlugin.options.metas[meta] %>">
+    <% } %>
+  </head>
+  <body>
+    <div id="<%= htmlWebpackPlugin.options.container.id %>" class="container" role="<%= htmlWebpackPlugin.options.container.role %>"></div>
+  </body>
+</html>

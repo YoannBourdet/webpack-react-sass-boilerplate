@@ -9,7 +9,7 @@ new WebpackDevServer(webpack(config), {
   stats: { colors: true },
   historyApiFallback: true,
   headers: { 'Access-Control-Allow-Origin': '*' },
-}).listen(globalConfig.port, 'localhost', function(err, result) {
+}).listen(globalConfig.server.port, 'localhost', function(err, result) {
   if (err) {
     console.log(err, result);
   }
