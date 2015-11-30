@@ -4,10 +4,10 @@ module.exports = {
   },
   staticPage: {
     pathToTemplate: './app/index.html',
-    title: 'Webback | Webpack + Backbone + React',
+    title: 'Webpack-React-Scss-Boilerplate',
     metas: {
-      keywords: 'webpack, react, babel, backbone, es6, javascript, git, github',
-      description: 'app build with webpack and react',
+      keywords: 'webpack, react, babel, es6, javascript, boilerplategit, git, github',
+      description: 'webpack + react + sass > boilerplate ;)',
     },
     container: {
       id: 'main',
