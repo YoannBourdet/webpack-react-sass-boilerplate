@@ -5,13 +5,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const globalConfig = require('./global.config');
 
 module.exports = {
-  context: path.join(__dirname, 'app'),
   devtool: 'eval',
   entry: {
     app: [
       'webpack-dev-server/client?http://localhost:' + globalConfig.server.port,
       'webpack/hot/dev-server',
-      './js/entry.js',
+      './app/js/entry',
+      './app/scss/main',
     ],
   },
   resolve: {
@@ -33,7 +33,7 @@ module.exports = {
       loader: 'file?name=[path][name].[ext]',
     }, {
       test: /\.scss$/,
-      loaders: ['style', 'css', 'sass'],
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
